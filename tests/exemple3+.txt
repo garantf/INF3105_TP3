@@ -1,0 +1,41 @@
+n1
+n10
+n11
+n12
+n13
+n14
+n15
+n16
+n17
+n18
+n19
+n2
+n20
+n3
+n4
+n5
+n6
+n7
+n8
+n9
+President-Kennedy	n1	n11	4
+President-Kennedy	n11	n10	4
+Grands-Batisseurs	n11	n14	7
+UQAM1	n12	n18	10
+Grands-Batisseurs	n12	n6	7
+Grands-Batisseurs	n13	n12	7
+UQAM3	n13	n9	2
+Grands-Batisseurs	n14	n13	7
+UQAM2	n14	n19	4
+UQAM1	n15	n3	10
+UQAM1	n16	n15	10
+UQAM1	n17	n16	10
+UQAM1	n18	n17	10
+UQAM2	n19	n2	4
+UQAM4	n19	n20	3
+Sherbrooke	n5	n4	7
+Sherbrooke	n6	n5	7
+Sherbrooke	n6	n7	7
+Saint-Urbain	n7	n8	9
+---
+129

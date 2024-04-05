@@ -1,0 +1,17 @@
+a 
+b 
+c 
+d 
+e 
+f  
+---
+rue0 : a b 1 ;
+rue1 : a d 4 ;
+rue1 : a e 3 ;
+rue2 : b d 4 ;
+rue3 : b e 2 ;
+rue3 : d e 4 ;
+rue3 : e c 4;
+rue4 : e f 7 ;
+rue4 : c f 5 ;
+---

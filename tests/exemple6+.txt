@@ -1,0 +1,37 @@
+s0
+s1
+s10
+s11
+s12
+s13
+s14
+s15
+s16
+s17
+s2
+s3
+s4
+s5
+s6
+s7
+s8
+s9
+rue9	s0	s4	5
+rue3	s0	s7	5
+rue1	s10	s3	5
+rue1	s12	s11	5
+rue2	s14	s15	1
+rue3	s15	s16	1
+rue3	s16	s1	2
+rue12	s17	s2	5
+rue16	s17	s5	4
+rue4	s2	s8	3
+rue8	s2	s9	4
+rue1	s3	s12	5
+rue1	s3	s14	3
+rue15	s4	s17	4
+rue10	s4	s6	4
+rue0	s7	s13	7
+rue4	s8	s10	2
+---
+65

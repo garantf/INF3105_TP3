@@ -1,0 +1,22 @@
+a 
+b 
+c 
+d 
+e 
+f 
+g 
+h 
+---
+rue0 : a e 9 ;
+rue1 : a c 5 ;
+rue2 : a b 7 ;
+rue3 : b c 4 ;
+rue4 : c d 2 ;
+rue5 : b f 10 ;
+rue6 : e d 4 ;
+rue7 : d f 3 ;
+rue8 : e g 3 ;
+rue9 : d h 7 ;
+rue10 : f h 7 ;
+rue11 : g h 4 ;
+---

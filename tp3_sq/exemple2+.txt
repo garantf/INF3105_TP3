@@ -1,0 +1,19 @@
+a
+b
+c
+d
+e
+f
+g
+h
+i
+rue0	a	b	4
+rue1	a	h	8
+rue6	c	d	7
+rue4	c	i	2
+rue8	d	e	9
+rue5	f	c	4
+rue10	g	f	2
+rue12	h	g	1
+---
+37

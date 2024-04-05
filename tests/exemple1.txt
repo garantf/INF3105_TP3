@@ -1,0 +1,30 @@
+SFO 
+LAX 
+DFW 
+ORD 
+BOS 
+PVD 
+JFK 
+BWI
+MIA 
+---
+rue0 : SFO BOS 2704 ;
+rue1 : SFO ORD 1846 ;
+rue2 : SFO DFW 1464 ;
+rue3 : SFO LAX 337 ;
+rue4 : BOS ORD 867 ;
+rue5 : BOS JFK 187 ;
+rue6 : BOS MIA 1258 ;
+rue7 : ORD PVD 849 ;
+rue8 : ORD JFK 740 ;
+rue9 : ORD BWI 621 ;
+rue10 : ORD DFW 802 ;
+rue11 : DFW JFK 1391 ;
+rue12 : DFW LAX 1235 ;
+rue13 : DFW MIA 1121 ;
+rue14 : LAX MIA 2342 ;
+rue15 : JFK BWI 184 ;
+rue16 : JFK MIA 1090 ;
+rue17 : JFK PVD 144 ;
+rue18 : MIA BWI 946 ;
+---

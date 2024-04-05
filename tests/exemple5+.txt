@@ -1,0 +1,13 @@
+a
+b
+c
+d
+e
+f
+rue0	a	b	1
+rue1	a	d	4
+rue3	b	e	2
+rue4	c	f	5
+rue3	e	c	4
+---
+16

@@ -1,0 +1,31 @@
+s1
+s10
+s11
+s12
+s13
+s14
+s15
+s2
+s3
+s4
+s5
+s6
+s7
+s8
+s9
+rue0	s1	s2	2
+rue3	s10	s14	7
+rue4	s10	s15	1
+rue3	s11	s7	12
+rue4	s12	s11	16
+rue5	s13	s12	6
+rue6	s14	s13	15
+rue1	s2	s3	5
+rue1	s2	s5	8
+rue1	s2	s6	4
+rue1	s5	s4	19
+rue1	s5	s9	17
+rue3	s9	s10	18
+rue2	s9	s8	13
+---
+143
