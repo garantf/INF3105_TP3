@@ -8,15 +8,57 @@
 #define _CARTE__H_
 #include <cassert>
 #include <istream>
+#include <vector>
 #include <string>
+#include <set>
 
 using namespace std;
 
 class Carte{
   public:
 
+    struct Site;
+
+    struct Rue {
+      string nom;
+      int poids;
+      Site *debut, *fin;
+
+      bool operator < (const Rue& rue) const {
+        return debut < rue.debut || (debut == rue.debut && fin < rue.fin);
+      }
+    };
+
+    struct Site {
+      string nom;
+      vector<Rue*> listeRuesSite;
+
+      bool operator < (const Site& site) const {
+        return nom < site.nom;
+      }
+
+      bool operator > (const Site& site) const {
+        return nom > site.nom;
+      }
+
+      bool operator == (const Site& site) const {
+        return nom == site.nom;
+      }
+
+    };
+
+    Carte();
+    ~Carte();
+    void ajouterSite(const string& nom);
+    void ajouterRue(const string& nom, const string& nomSite1, const string& nomSite2, int poids);
+    
 
   private:
+
+    set<Site*> listeSites;
+    vector<Rue*> listeRues;
+
+
 
     
   friend istream& operator >> (istream& is, Carte& carte);
