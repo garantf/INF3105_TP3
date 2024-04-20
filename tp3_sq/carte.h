@@ -24,8 +24,12 @@ class Carte{
       int poids;
       Site *debut, *fin;
 
-      bool operator < (const Rue& rue) const {
-        return debut < rue.debut || (debut == rue.debut && fin < rue.fin);
+      bool operator < (const Rue& other) const {
+        if (nom != other.nom)
+            return nom < other.nom;
+        if (debut->nom != other.debut->nom)
+            return debut->nom < other.debut->nom;
+        return fin->nom < other.fin->nom;
       }
     };
 
@@ -51,6 +55,8 @@ class Carte{
     ~Carte();
     void ajouterSite(const string& nom);
     void ajouterRue(const string& nom, const string& nomSite1, const string& nomSite2, int poids);
+    void calculerArbreRecouvrementMinimal();
+    void printMSTinOrder();
     
 
   private:

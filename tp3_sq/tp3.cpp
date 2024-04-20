@@ -11,7 +11,7 @@
 using namespace std;
 
 void tp3(Carte& carte){
-
+    carte.calculerArbreRecouvrementMinimal();
 }
 
 int main(int argc, const char** argv)

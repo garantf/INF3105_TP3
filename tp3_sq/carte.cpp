@@ -8,6 +8,7 @@
 #include <limits>
 #include <math.h>
 #include <queue>
+#include <map>
 #include <sstream>
 #include <iostream>
 #include "carte.h"
@@ -18,10 +19,11 @@ Carte::Carte() {
 }
 
 Carte::~Carte() {
-    for (Site* site : listeSites) {
-        delete site;
+    for (std::set<Site*>::iterator it = listeSites.begin(); it != listeSites.end(); ++it) {
+        delete *it;
     }
-    for (Rue* rue : listeRues) {
+    for (std::vector<Rue*>::iterator it = listeRues.begin(); it != listeRues.end(); ++it) {
+        Rue* rue = *it;
         delete rue;
     }
 }
@@ -35,7 +37,8 @@ void Carte::ajouterSite(const string& nom) {
 void Carte::ajouterRue(const string& nom, const string& nomSite1, const string& nomSite2, int poids) {
     Site* site1 = nullptr;
     Site* site2 = nullptr;
-    for (Site* site : listeSites) {
+    for (std::set<Site*>::iterator it = listeSites.begin(); it != listeSites.end(); ++it) {
+        Site* site = *it;
         if (site->nom == nomSite1) {
             site1 = site;
         } else if (site->nom == nomSite2) {
@@ -57,9 +60,63 @@ void Carte::ajouterRue(const string& nom, const string& nomSite1, const string& 
     site2->listeRuesSite.push_back(rue);
 }
 
+void Carte::calculerArbreRecouvrementMinimal() {
+    if (listeSites.empty()) return;
+
+    priority_queue<pair<int, Rue*>, vector<pair<int, Rue*> >, greater<pair<int, Rue*> > > pq;
+    set<Site*> dansMST;
+    vector<Rue*> mstRues;
+    int totalCost = 0;
+
+    // Start with the first site in alphanumerical order
+    Site* startSite = *listeSites.begin();
+    dansMST.insert(startSite);
+
+    // Initialize the priority queue with the adjacent streets of the first site
+    for (vector<Rue*>::iterator it = startSite->listeRuesSite.begin(); it != startSite->listeRuesSite.end(); ++it) {
+        Rue* rue = *it;
+        pq.push(make_pair(rue->poids, rue));
+    }
+
+    // Main loop of Prim's algorithm
+    while (!pq.empty() && dansMST.size() < listeSites.size()) {
+        pair<int, Rue*> top = pq.top();
+        pq.pop();
+        int cost = top.first;
+        Rue* rue = top.second;
+        Site* siteToAdd = NULL;
+
+        if (dansMST.count(rue->debut) > 0 && dansMST.count(rue->fin) == 0)
+            siteToAdd = rue->fin;
+        else if (dansMST.count(rue->debut) == 0 && dansMST.count(rue->fin) > 0)
+            siteToAdd = rue->debut;
+
+        if (siteToAdd) {
+            dansMST.insert(siteToAdd);
+            mstRues.push_back(rue);
+            totalCost += cost;
+            for (vector<Rue*>::iterator it = siteToAdd->listeRuesSite.begin(); it != siteToAdd->listeRuesSite.end(); ++it) {
+                Rue* adjRue = *it;
+                pq.push(make_pair(adjRue->poids, adjRue));
+            }
+        }
+    }
+
+    // Sort the mstRues vector in alphanumerical order
+    std::sort(mstRues.begin(), mstRues.end());
+
+    // Output results
+    for (set<Site*>::iterator it = listeSites.begin(); it != listeSites.end(); ++it)
+        cout << (*it)->nom << endl;
+    for (vector<Rue*>::iterator it = mstRues.begin(); it != mstRues.end(); ++it)
+        cout << (*it)->nom << " " << (*it)->debut->nom << " " << (*it)->fin->nom << " " << (*it)->poids << endl;
+    cout << "---" << endl;
+    cout << totalCost << endl;
+}
+
+
 istream& operator >> (istream& is, Carte& carte)
 {
-    Carte::Site *site1;
     string nomSite;
     is >> nomSite;
     while (nomSite != "---") {
